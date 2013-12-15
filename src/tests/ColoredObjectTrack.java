@@ -189,7 +189,7 @@ public class ColoredObjectTrack extends GraphicsProgram{
 	         Core.bitwise_and(thresholded, thresholded2, thresholded);  
 	         // Apply the Hough Transform to find the circles  
 	         Imgproc.GaussianBlur(thresholded, thresholded, new Size(9,9),0,0);  
-	         Imgproc.HoughCircles(thresholded, circles, Imgproc.CV_HOUGH_GRADIENT, 2, thresholded.height()/4, 500, 50, 0, 0);   
+	         Imgproc.HoughCircles(thresholded, circles, Imgproc.CV_HOUGH_GRADIENT, 2, thresholded.height()/4, 200, 100, 0, 0);   
 	         //Imgproc.Canny(thresholded, thresholded, 500, 250);  
 	         //-- 4. Add some info to the image  
 	         Core.line(webcam_image, new Point(150,50), new Point(202,200), new Scalar(100,10,10)/*CV_BGR(100,10,10)*/, 3);  
