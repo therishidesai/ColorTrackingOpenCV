@@ -1,6 +1,7 @@
 
-
-
+/*
+This is an old file and should be ignored.
+*/
 
 import java.awt.AWTException;
 import java.awt.Color;
