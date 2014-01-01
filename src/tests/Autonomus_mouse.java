@@ -1,7 +1,7 @@
 package tests;
-import acm.graphics.*;
-import acm.program.*;
-import acm.util.*;
+//import acm.graphics.*;
+//import acm.program.*;
+//import acm.util.*;
 //import acm.io.*;
 import java.applet.*;
 import java.awt.*;
@@ -11,27 +11,13 @@ import java.util.Random;
 
 import javax.swing.JDialog;
 
-public class Autonomus_mouse extends GraphicsProgram {
-	Random rand = new Random();
+public class Autonomus_mouse {
+	private static Random rand = new Random();
 
-	public void run(){
+	public static void main(String args[])throws AWTException{
 		
-		while(true){
-			try {
-			    // These coordinates are screen coordinates
-			    int xCoord = rand.nextInt(1000);
-			    int yCoord = rand.nextInt(1000);
-	
-			    // Move the cursor
-			    Robot robot = new Robot();
-			    robot.mouseMove(xCoord, yCoord);
-			} catch (AWTException e) {
-			}
-			try {
-			    Thread.sleep(1000);
-			} catch(InterruptedException ex) {
-			    Thread.currentThread().interrupt();
-			}
-		}
+		Robot robot = new Robot();
+		robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+		robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
 	}
 }
