@@ -130,7 +130,7 @@ public class singleObjectTrack{
             Panel panel4 = new Panel();  
             frame4.setContentPane(panel4);      
             frame4.setVisible(true);  
-            	
+                    
             
             //-- 2. Read the video stream  
             VideoCapture capture =new VideoCapture(0);  
@@ -199,8 +199,8 @@ public class singleObjectTrack{
                 // Imgproc.HoughCircles(thresholded, circles, Imgproc.CV_HOUGH_GRADIENT, 2, thresholded.height()/4, 200, 100, 0, 0);   
                  List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
                  Imgproc.HoughCircles(thresholded, circles, Imgproc.CV_HOUGH_GRADIENT, 2, thresholded.height()/8, 200, 100, 0, 0);   
-    	         Imgproc.findContours(thresholded, contours, thresholded2, Imgproc.RETR_LIST,Imgproc.CHAIN_APPROX_SIMPLE);
-    	         Imgproc.drawContours(webcam_image, contours, -1, new Scalar(0, 0, 0));
+                     Imgproc.findContours(thresholded, contours, thresholded2, Imgproc.RETR_LIST,Imgproc.CHAIN_APPROX_SIMPLE);
+                     Imgproc.drawContours(webcam_image, contours, -1, new Scalar(0, 0, 0));
 
                  //Imgproc.Canny(thresholded, thresholded, 500, 250);  
                  //-- 4. Add some info to the image  
@@ -246,8 +246,8 @@ public class singleObjectTrack{
                                       //Red will do the clicking since green is more accurate
                                       Robot robot = new Robot();
                                       //robot.mouseMove(xCoord, yCoord);
-                                      robot.mousePress(InputEvent.BUTTON3_MASK);
-                                      robot.mouseRelease(InputEvent.BUTTON3_MASK);
+             //                         robot.mousePress(InputEvent.BUTTON3_MASK);
+               //                       robot.mouseRelease(InputEvent.BUTTON3_MASK);
                                   } catch (AWTException e) {
                                   }
                               
@@ -321,7 +321,8 @@ public class singleObjectTrack{
                       frame4.setContentPane(panel4);      
                       frame4.setVisible(true);  
                       //-- 2. Read the video stream  
-                      VideoCapture capture =new VideoCapture(0);  
+                      VideoCapture capture =new VideoCapture(0); 
+                     //capture.set(15, 30);
                       Mat webcam_image=new Mat();  
                       Mat hsv_image=new Mat();  
                       Mat thresholded=new Mat();  
@@ -344,10 +345,10 @@ public class singleObjectTrack{
                       List<Mat> lhsv = new ArrayList<Mat>(3);      
                       Mat circles = new Mat(); // No need (and don't know how) to initialize it.  
                                    // The function later will do it... (to a 1*N*CV_32FC3)  
-                      Scalar hsv_min = new Scalar(49, 100, 100, 0);  
+                      Scalar hsv_min = new Scalar(30, 100, 100, 0);  
                       Scalar hsv_max = new Scalar(55, 255, 255, 0);  
                       Scalar hsv_min2 = new Scalar(60, 100, 100, 0);  
-                      Scalar hsv_max2 = new Scalar(70, 255, 255, 0);  
+                      Scalar hsv_max2 = new Scalar(90, 255, 255, 0);  
                       double[] data=new double[3];  
                       if( capture.isOpened())  
                       {  
@@ -384,8 +385,8 @@ public class singleObjectTrack{
                            Imgproc.GaussianBlur(thresholded, thresholded, new Size(9,9),0,0);  
                            List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
                            Imgproc.HoughCircles(thresholded, circles, Imgproc.CV_HOUGH_GRADIENT, 2, thresholded.height()/8, 200, 100, 0, 0);   
-              	         Imgproc.findContours(thresholded, contours, thresholded2, Imgproc.RETR_LIST,Imgproc.CHAIN_APPROX_SIMPLE);
-              	         Imgproc.drawContours(webcam_image, contours, -1, new Scalar(0, 0, 0));   
+                           Imgproc.findContours(thresholded, contours, thresholded2, Imgproc.RETR_LIST,Imgproc.CHAIN_APPROX_SIMPLE);
+                           Imgproc.drawContours(webcam_image, contours, -1, new Scalar(255, 0, 0), 2);   
                            //Imgproc.Canny(thresholded, thresholded, 500, 250);  
                            //-- 4. Add some info to the image  
                            Core.line(webcam_image, new Point(150,50), new Point(202,200), new Scalar(100,10,10)/*CV_BGR(100,10,10)*/, 3);  
@@ -476,4 +477,4 @@ public class singleObjectTrack{
                         }  
 
           }
-  }   
+  } 

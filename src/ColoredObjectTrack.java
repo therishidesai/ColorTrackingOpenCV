@@ -155,10 +155,10 @@ public class ColoredObjectTrack {
 	    List<Mat> lhsv = new ArrayList<Mat>(3);      
 	    Mat circles = new Mat(); // No need (and don't know how) to initialize it.  
 	                 // The function later will do it... (to a 1*N*CV_32FC3)  
-	    Scalar hsv_min = new Scalar(0, 50, 50, 0);  
-	    Scalar hsv_max = new Scalar(6, 255, 255, 0);  
-	    Scalar hsv_min2 = new Scalar(175, 50, 50, 0);  
-	    Scalar hsv_max2 = new Scalar(179, 255, 255, 0);  
+	    Scalar hsv_min = new Scalar(49, 100, 100, 0);  
+        Scalar hsv_max = new Scalar(55, 255, 255, 0);  
+        Scalar hsv_min2 = new Scalar(60, 100, 100, 0);  
+        Scalar hsv_max2 = new Scalar(70, 255, 255, 0);  
 	    double[] data=new double[3];  
 	    if( capture.isOpened())  
 	    {  
@@ -197,7 +197,7 @@ public class ColoredObjectTrack {
 	         Imgproc.GaussianBlur(thresholded, thresholded, new Size(9,9),0,0);  
 	         Imgproc.HoughCircles(thresholded, circles, Imgproc.CV_HOUGH_GRADIENT, 2, thresholded.height()/8, 200, 100, 0, 0);   
 	         Imgproc.findContours(thresholded, contours, thresholded2, Imgproc.RETR_LIST,Imgproc.CHAIN_APPROX_SIMPLE);
-	         Imgproc.drawContours(webcam_image, contours, -1, new Scalar(0, 0, 0));
+	         Imgproc.drawContours(webcam_image, contours, -1, new Scalar(0, 0, 0), 2);
 	         //Imgproc.Canny(thresholded, thresholded, 500, 250);  
 	         //-- 4. Add some info to the image  
 	         //Core.line(webcam_image, new Point(150,50), new Point(202,200), new Scalar(100,10,10)/*CV_BGR(100,10,10)*/, 3);  
