@@ -163,8 +163,8 @@ public class ledObjectTrack{
 		List<Mat> lhsv = new ArrayList<Mat>(3);      
 		Mat circles = new Mat(); // No need (and don't know how) to initialize it.  
 		// The function later will do it... (to a 1*N*CV_32FC3)  
-		Scalar hsv_min = new Scalar(0, 0,0, 0);  
-		Scalar hsv_max = new Scalar(0, 10,255, 0);  
+		Scalar hsv_min = new Scalar(50, 100,100, 0);  
+		Scalar hsv_max = new Scalar(70, 255,255, 0);  
 		//Scalar hsv_min2 = new Scalar(0,0,125, 0);  
 		//Scalar hsv_max2 = new Scalar(0,0, 255, 0);  
 		double[] data=new double[3];  
@@ -278,7 +278,8 @@ public class ledObjectTrack{
 					//if(contours.size()==1){
 						int x = mouse.getX(contours);
 						int y = mouse.getY(contours);
-						//mouse.moveMouse(x, y);
+						//moves mouse to the specific x,y coordinate calculated in the Mouse class
+						mouse.moveMouse(x, y);
 						System.out.println(x);
 						System.out.println(y);
 						Core.circle(webcam_image, new Point(x, y), 4, new Scalar(255,49,0,255), 4);
