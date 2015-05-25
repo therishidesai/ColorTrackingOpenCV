@@ -6,9 +6,6 @@ This repository is for my Synopsis Science Fair project in which I am using the 
 
 Included in this repository currently are test files in which I am testing how to use openCV for image processing. 
 
-Now the two best files to look at are the singleObjectTrack.java and multiObjectTracking,java.
-In the single object tracking file I was able to track any shapes that are the color green. This allowed me to track a green hand but I need help on how to find joints on hands and do actual gesture tracking. 
-
-The multi object tracking is still a work in progress since it can track red and green but is very slow.
+I have updated the final version of my object tracking experiments in java. In the ledObjecTrack.java file I can track an obejct of any color and then find its center ad have the mouse follow that center area.
 
 Here is a link to a video of me testing the program: http://www.youtube.com/watch?v=J8TVTaDCUTM
